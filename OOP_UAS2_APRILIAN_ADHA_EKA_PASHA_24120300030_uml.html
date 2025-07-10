@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UML Diagram - Factory Method Pattern</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .diagram-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .download-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+        .explanation {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .explanation h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .changes-list {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UML Class Diagram - Factory Method Pattern</h1>
+        <h2>FC Cakrawala Football Club System</h2>
+        
+        <div class="diagram-container">
+            <svg width="1100" height="800" viewBox="0 0 1100 800" style="border: 1px solid #ccc; background-color: #fff;">
+                <!-- Club Class -->
+                <rect x="50" y="50" width="200" height="120" fill="#E8F4FD" stroke="#333" stroke-width="2"/>
+                <text x="150" y="70" text-anchor="middle" font-weight="bold" font-size="14">Club</text>
+                <line x1="50" y1="75" x2="250" y2="75" stroke="#333" stroke-width="1"/>
+                <text x="60" y="90" font-size="12">- clubId: int</text>
+                <text x="60" y="105" font-size="12">- name: string</text>
+                <text x="60" y="120" font-size="12">- founded: int</text>
+                <text x="60" y="135" font-size="12">- address: string</text>
+                <line x1="50" y1="140" x2="250" y2="140" stroke="#333" stroke-width="1"/>
+                <text x="60" y="155" font-size="12">+ getClubInfo(): string</text>
+                
+                <!-- Team Class -->
+                <rect x="350" y="50" width="200" height="150" fill="#E8F4FD" stroke="#333" stroke-width="2"/>
+                <text x="450" y="70" text-anchor="middle" font-weight="bold" font-size="14">Team</text>
+                <line x1="350" y1="75" x2="550" y2="75" stroke="#333" stroke-width="1"/>
+                <text x="360" y="90" font-size="12">- teamId: int</text>
+                <text x="360" y="105" font-size="12">- name: string</text>
+                <text x="360" y="120" font-size="12">- ageGroup: string</text>
+                <text x="360" y="135" font-size="12">- matchesPlayed: int</text>
+                <text x="360" y="150" font-size="12">- wins: int</text>
+                <text x="360" y="165" font-size="12">- draws: int</text>
+                <text x="360" y="180" font-size="12">- losses: int</text>
+                <line x1="350" y1="185" x2="550" y2="185" stroke="#333" stroke-width="1"/>
+                <text x="360" y="200" font-size="12">+ getTeamInfo(): string</text>
+                
+                <!-- PersonFactory (Abstract Factory) -->
+                <rect x="400" y="280" width="200" height="100" fill="#FFE6E6" stroke="#333" stroke-width="2"/>
+                <text x="500" y="300" text-anchor="middle" font-weight="bold" font-size="14" font-style="italic">PersonFactory</text>
+                <text x="500" y="315" text-anchor="middle" font-size="12" font-style="italic">&lt;&lt;abstract&gt;&gt;</text>
+                <line x1="400" y1="325" x2="600" y2="325" stroke="#333" stroke-width="1"/>
+                <text x="410" y="345" font-size="12" font-style="italic">+ createPerson(): Person</text>
+                <text x="410" y="360" font-size="12" font-style="italic">+ getPersonType(): string</text>
+                
+                <!-- Person Class (Abstract) -->
+                <rect x="400" y="420" width="200" height="120" fill="#E6F3FF" stroke="#333" stroke-width="2"/>
+                <text x="500" y="440" text-anchor="middle" font-weight="bold" font-size="14" font-style="italic">Person</text>
+                <text x="500" y="455" text-anchor="middle" font-size="12" font-style="italic">&lt;&lt;abstract&gt;&gt;</text>
+                <line x1="400" y1="460" x2="600" y2="460" stroke="#333" stroke-width="1"/>
+                <text x="410" y="475" font-size="12"># id: int</text>
+                <text x="410" y="490" font-size="12"># name: string</text>
+                <text x="410" y="505" font-size="12"># age: int</text>
+                <text x="410" y="520" font-size="12"># address: string</text>
+                <line x1="400" y1="525" x2="600" y2="525" stroke="#333" stroke-width="1"/>
+                <text x="410" y="540" font-size="12">+ getInfo(): string</text>
+                
+                <!-- CoachFactory -->
+                <rect x="50" y="280" width="150" height="80" fill="#E6FFE6" stroke="#333" stroke-width="2"/>
+                <text x="125" y="300" text-anchor="middle" font-weight="bold" font-size="14">CoachFactory</text>
+                <line x1="50" y1="305" x2="200" y2="305" stroke="#333" stroke-width="1"/>
+                <text x="60" y="320" font-size="12">+ createPerson(): Coach</text>
+                <text x="60" y="335" font-size="12">+ getPersonType(): string</text>
+                <text x="60" y="350" font-size="12">+ createCoach(): Coach</text>
+                
+                <!-- PlayerFactory -->
+                <rect x="650" y="280" width="150" height="80" fill="#E6FFE6" stroke="#333" stroke-width="2"/>
+                <text x="725" y="300" text-anchor="middle" font-weight="bold" font-size="14">PlayerFactory</text>
+                <line x1="650" y1="305" x2="800" y2="305" stroke="#333" stroke-width="1"/>
+                <text x="660" y="320" font-size="12">+ createPerson(): Player</text>
+                <text x="660" y="335" font-size="12">+ getPersonType(): string</text>
+                <text x="660" y="350" font-size="12">+ createPlayer(): Player</text>
+                
+                <!-- StaffFactory -->
+                <rect x="850" y="280" width="150" height="80" fill="#E6FFE6" stroke="#333" stroke-width="2"/>
+                <text x="925" y="300" text-anchor="middle" font-weight="bold" font-size="14">StaffFactory</text>
+                <line x1="850" y1="305" x2="1000" y2="305" stroke="#333" stroke-width="1"/>
+                <text x="860" y="320" font-size="12">+ createPerson(): Staff</text>
+                <text x="860" y="335" font-size="12">+ getPersonType(): string</text>
+                <text x="860" y="350" font-size="12">+ createStaff(): Staff</text>
+                
+                <!-- Coach Class -->
+                <rect x="50" y="600" width="180" height="120" fill="#F0F8FF" stroke="#333" stroke-width="2"/>
+                <text x="140" y="620" text-anchor="middle" font-weight="bold" font-size="14">Coach</text>
+                <line x1="50" y1="625" x2="230" y2="625" stroke="#333" stroke-width="1"/>
+                <text x="60" y="640" font-size="12">- license: string</text>
+                <text x="60" y="655" font-size="12">- experience: int</text>
+                <text x="60" y="670" font-size="12">- coachType: string</text>
+                <line x1="50" y1="675" x2="230" y2="675" stroke="#333" stroke-width="1"/>
+                <text x="60" y="690" font-size="12">+ trainTeam(): string</text>
+                <text x="60" y="705" font-size="12">+ getInfo(): string</text>
+                
+                <!-- Player Class -->
+                <rect x="460" y="600" width="180" height="120" fill="#F0F8FF" stroke="#333" stroke-width="2"/>
+                <text x="550" y="620" text-anchor="middle" font-weight="bold" font-size="14">Player</text>
+                <line x1="460" y1="625" x2="640" y2="625" stroke="#333" stroke-width="1"/>
+                <text x="470" y="640" font-size="12">- position: string</text>
+                <text x="470" y="655" font-size="12">- jerseyNumber: int</text>
+                <text x="470" y="670" font-size="12">- studentId: string</text>
+                <line x1="460" y1="675" x2="640" y2="675" stroke="#333" stroke-width="1"/>
+                <text x="470" y="690" font-size="12">+ play(): string</text>
+                <text x="470" y="705" font-size="12">+ getInfo(): string</text>
+                
+                <!-- Staff Class -->
+                <rect x="770" y="600" width="180" height="120" fill="#F0F8FF" stroke="#333" stroke-width="2"/>
+                <text x="860" y="620" text-anchor="middle" font-weight="bold" font-size="14">Staff</text>
+                <line x1="770" y1="625" x2="950" y2="625" stroke="#333" stroke-width="1"/>
+                <text x="780" y="640" font-size="12">- role: string</text>
+                <text x="780" y="655" font-size="12">- department: string</text>
+                <line x1="770" y1="660" x2="950" y2="660" stroke="#333" stroke-width="1"/>
+                <text x="780" y="675" font-size="12">+ work(): string</text>
+                <text x="780" y="690" font-size="12">+ getInfo(): string</text>
+                
+                <!-- Relationships -->
+                <!-- Club to Team (1 to *) -->
+                <line x1="250" y1="110" x2="350" y2="110" stroke="#333" stroke-width="2"/>
+                <text x="280" y="105" font-size="12">1</text>
+                <text x="320" y="105" font-size="12">*</text>
+                <text x="290" y="125" font-size="12">has</text>
+                
+                <!-- PersonFactory inheritance -->
+                <line x1="200" y1="320" x2="400" y2="320" stroke="#333" stroke-width="2"/>
+                <polygon points="400,320 390,315 390,325" fill="#333"/>
+                
+                <line x1="600" y1="320" x2="650" y2="320" stroke="#333" stroke-width="2"/>
+                <polygon points="650,320 640,315 640,325" fill="#333"/>
+                
+                <line x1="800" y1="320" x2="850" y2="320" stroke="#333" stroke-width="2"/>
+                <polygon points="850,320 840,315 840,325" fill="#333"/>
+                
+                <!-- PersonFactory to Person dependency -->
+                <line x1="500" y1="380" x2="500" y2="420" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+                <polygon points="500,420 495,410 505,410" fill="#333"/>
+                <text x="510" y="400" font-size="12">creates</text>
+                
+                <!-- Person inheritance -->
+                <line x1="140" y1="600" x2="460" y2="540" stroke="#333" stroke-width="2"/>
+                <polygon points="460,540 450,535 450,545" fill="#333"/>
+                
+                <line x1="550" y1="600" x2="520" y2="540" stroke="#333" stroke-width="2"/>
+                <polygon points="520,540 515,530 525,530" fill="#333"/>
+                
+                <line x1="860" y1="600" x2="580" y2="540" stroke="#333" stroke-width="2"/>
+                <polygon points="580,540 570,535 570,545" fill="#333"/>
+                
+                <!-- Factory creates specific classes -->
+                <line x1="125" y1="360" x2="140" y2="600" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+                <polygon points="140,600 135,590 145,590" fill="#333"/>
+                <text x="85" y="480" font-size="10">creates</text>
+                
+                <line x1="725" y1="360" x2="550" y2="600" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+                <polygon points="550,600 545,590 555,590" fill="#333"/>
+                <text x="630" y="480" font-size="10">creates</text>
+                
+                <line x1="925" y1="360" x2="860" y2="600" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+                <polygon points="860,600 855,590 865,590" fill="#333"/>
+                <text x="890" y="480" font-size="10">creates</text>
+                
+                <!-- Team relationships -->
+                <line x1="450" y1="200" x2="140" y2="600" stroke="#333" stroke-width="2"/>
+                <text x="250" y="350" font-size="12">1..2</text>
+                <text x="150" y="580" font-size="12">coaches</text>
+                
+                <line x1="450" y1="200" x2="550" y2="600" stroke="#333" stroke-width="2"/>
+                <text x="480" y="350" font-size="12">15</text>
+                <text x="500" y="580" font-size="12">players</text>
+                
+                <!-- Legend -->
+                <rect x="50" y="750" width="300" height="40" fill="#f9f9f9" stroke="#333" stroke-width="1"/>
+                <text x="55" y="765" font-size="12" font-weight="bold">Legend:</text>
+                <line x1="55" y1="775" x2="75" y2="775" stroke="#333" stroke-width="2"/>
+                <text x="80" y="780" font-size="10">Inheritance</text>
+                <line x1="140" y1="775" x2="160" y2="775" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="165" y="780" font-size="10">Dependency</text>
+                <text x="220" y="780" font-size="10">Factory Method Pattern</text>
+            </svg>
+        </div>
+        
+        <div class="explanation">
+            <h3>Factory Method Pattern Implementation</h3>
+            <p>This UML diagram shows the improved design using the Factory Method pattern. The key changes include:</p>
+            
+            <div class="changes-list">
+                <h4>Key Changes Made:</h4>
+                <ol>
+                    <li><strong>Abstract PersonFactory</strong>: Defines the interface for creating Person objects</li>
+                    <li><strong>Concrete Factories</strong>: CoachFactory, PlayerFactory, and StaffFactory implement the factory interface</li>
+                    <li><strong>Abstract Person Class</strong>: Base class for all person types</li>
+                    <li><strong>Encapsulation</strong>: Object creation logic is encapsulated in factory classes</li>
+                    <li><strong>Extensibility</strong>: Easy to add new person types by creating new factories</li>
+                </ol>
+            </div>
+            
+            <h4>Benefits of Factory Method Pattern:</h4>
+            <ul>
+                <li>Decouples object creation from the client code</li>
+                <li>Makes the code more flexible and maintainable</li>
+                <li>Follows the Open/Closed Principle (open for extension, closed for modification)</li>
+                <li>Provides a consistent interface for creating different types of persons</li>
+            </ul>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="download-btn" onclick="downloadSVG()">Download as SVG</button>
+            <button class="download-btn" onclick="downloadPNG()">Download as PNG</button>
+        </div>
+    </div>
+    
+    <script>
+        function downloadSVG() {
+            const svg = document.querySelector('svg');
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+            const svgUrl = URL.createObjectURL(svgBlob);
+            const downloadLink = document.createElement('a');
+            downloadLink.href = svgUrl;
+            downloadLink.download = 'OOP_UAS2_[nama]_[nim].svg';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+        
+        function downloadPNG() {
+            const svg = document.querySelector('svg');
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            
+            canvas.width = 1100;
+            canvas.height = 800;
+            
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+            const url = URL.createObjectURL(svgBlob);
+            
+            img.onload = function() {
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0);
+                
+                canvas.toBlob(function(blob) {
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = URL.createObjectURL(blob);
+                    downloadLink.download = 'OOP_UAS2_[nama]_[nim].png';
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                });
+            };
+            
+            img.src = url;
+        }
+    </script>
+</body>
+</html>
