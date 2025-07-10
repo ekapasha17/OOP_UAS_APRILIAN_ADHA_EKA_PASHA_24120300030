@@ -316,28 +316,6 @@ This project demonstrates mastery of:
 
 ---
 
-## 🚀 Future Enhancements
-
-Potential improvements and extensions:
-
-1. **Additional Person Types**
-   - Referee, Scout, Manager
-   - Easy to add with Factory pattern
-
-2. **Advanced Statistics**
-   - Detailed player performance metrics
-   - Team analytics and reporting
-
-3. **Database Integration**
-   - Persistent data storage
-   - CRUD operations
-
-4. **Web Interface**
-   - HTML frontend for club management
-   - REST API development
-
----
-
 ## 📞 Contact Information
 
 **Student:** APRILIAN ADHA EKA PASHA  
